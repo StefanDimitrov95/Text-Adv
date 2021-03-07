@@ -33,7 +33,11 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/test", {}, $("#name").val());
+    const message = {
+        'senderName': $("#name").val(),
+        'body': "TestMsg"
+    };
+    stompClient.send("/app/test", {}, JSON.stringify(message));
 }
 
 function showGreeting(message) {
