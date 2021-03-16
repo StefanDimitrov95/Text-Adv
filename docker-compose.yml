@@ -1,0 +1,15 @@
+services:
+  mongodb:
+    image: mongo:4.4.4
+    container_name: "mongodb"
+    environment: 
+    - MONGO_INITDB_DATABASE=chatapp
+    ports:
+    - 27017:27017
+  app:
+    image: chat-app-jvm
+    container_name: "chat-app"
+    ports:
+    - 8080:8080
+    links:
+    - mongodb
