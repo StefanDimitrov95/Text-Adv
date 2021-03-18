@@ -6,7 +6,6 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.MongoId;
 
 import java.time.Instant;
-import java.time.format.DateTimeFormatter;
 
 @Document
 @Data
@@ -17,10 +16,10 @@ public class TextMessage {
     private Long senderId;
     private String senderName;
     private String body;
-    private String timestamp;
+    private Instant timestamp;
 
     public TextMessage() {
-        this.timestamp = DateTimeFormatter.ISO_INSTANT.format(Instant.now());
+        this.timestamp = Instant.now();
     }
 }
 
